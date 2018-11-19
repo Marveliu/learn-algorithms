@@ -17,10 +17,9 @@ class isort {
     }
 
     public static void main(String[] args) {
+        LogUtil.log();
         int[] t = { 31, 41, 59, 26, 41, 58 };
         t = isort.cal(t);
-        for (int i = 0; i < t.length; i++) {
-            System.out.print(t[i]);
-        }
+        LogUtil.log(t);
     }
 }
