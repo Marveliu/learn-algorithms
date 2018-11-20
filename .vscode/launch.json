@@ -2,6 +2,16 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - qsort",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "qsort",
+            "args": ""
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - LogUtil",
             "request": "launch",
             "cwd": "${workspaceFolder}",
