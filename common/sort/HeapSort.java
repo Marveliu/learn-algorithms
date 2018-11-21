@@ -64,13 +64,13 @@ class HeapSort {
             int tmp = s[0];
             s[0] = s[p];
             s[p] = tmp;
-            max_heapify(s, len - 1, 0);
+            max_heapify(s, --len, 0);
+            p--;
         }
     }
 
     public static void main(String[] args) {
-        // int[] a = { 4, 1, 3, 2, 16, 9, 10, 14, 8, 7 };
-        int[] a = { 4, 1, 3 };
+        int[] a = { 4, 1, 3, 2, 16, 9, 10, 14, 8, 7 };
         HeapSort.heapSort(a);
         LogUtil.log(a);
     }
