@@ -1,6 +1,6 @@
 //  快速排序实现
 
-class qsort {
+class QuickSort {
 
     /**
      * 
@@ -15,7 +15,7 @@ class qsort {
             // q 为分割点，不会再参与排序
             quickSort(s, p, q);
             quickSort(s, q + 1, r);
-            }
+        }
     }
 
     /**
@@ -44,8 +44,9 @@ class qsort {
     }
 
     public static void main(String[] args) {
-        int[] a = { 100, 2, 3 };
-        qsort.quickSort(a, 0, a.length);
+        int[] a = { 100, 2, 11, 7, 6, 12, 98, 3 };
+        QuickSort.quickSort(a, 0, a.length);
         LogUtil.log(a);
     }
+
 }

@@ -1,6 +1,6 @@
 // 插入排序实现， 从小到大
 
-class isort {
+class InsertSort {
 
     static int[] cal(int[] source) {
         for (int j = 1, i = 0; j < source.length; j++) {
@@ -19,7 +19,7 @@ class isort {
     public static void main(String[] args) {
         LogUtil.log();
         int[] t = { 31, 41, 59, 26, 41, 58 };
-        t = isort.cal(t);
+        t = InsertSort.cal(t);
         LogUtil.log(t);
     }
 }

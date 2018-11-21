@@ -6,9 +6,6 @@ function clean(){
 }
 
 run(){
-    
-    echo $@
-
 	if [ $1 == "push" ]; then
         git add .
         if [ -z $2 ]; then
