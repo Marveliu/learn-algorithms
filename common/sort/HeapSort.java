@@ -43,6 +43,11 @@ class HeapSort {
         }
     }
 
+    /**
+     * 构建最大堆
+     * 
+     * @param s
+     */
     private static void buildMaxHeap(int[] s) {
         int p = s.length / 2;
         while (p > 0) {
@@ -60,6 +65,7 @@ class HeapSort {
         buildMaxHeap(s);
         int len = s.length;
         int p = len - 1;
+        // 不断取堆顶
         while (p > 0) {
             int tmp = s[0];
             s[0] = s[p];
