@@ -2,6 +2,16 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - BucketSort",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "stopOnEntry": false,
+            "mainClass": "BucketSort",
+            "args": ""
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - RadixSort",
             "request": "launch",
             "cwd": "${workspaceFolder}",
