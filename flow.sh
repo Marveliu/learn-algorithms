@@ -17,7 +17,22 @@ run(){
         fi    
 	elif [ $1 == "clean" ]; then
         echo "rm *.class"
+        cd workspace
+        mv Solution.java Solution.java.tmp
+        cp Solution.java.back Solution.java
+        cd ..
 		clean
+    elif [ $1 == "save" ]; then
+        echo "save solution.class"
+        # 统计数目
+        cd offer
+        num=`ls -l |grep "^-"|wc -l`
+        echo ${num}
+        cd ..
+        let num++
+        cp ./workspace/Solution.java ./offer/${num}.java
+    else  $1 == "clear"
+        clean
     fi
 }
 
