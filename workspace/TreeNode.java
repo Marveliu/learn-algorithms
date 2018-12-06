@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 public class TreeNode {
 
     int val;
@@ -11,37 +13,44 @@ public class TreeNode {
     public static void in(TreeNode root) {
         if (root != null) {
             System.out.println(root.val);
-            bf(root.left);
-            bf(root.right);
+            in(root.left);
+            in(root.right);
         }
     }
 
     public static void pre(TreeNode root) {
         if (root != null) {
-            bf(root.left);
+            pre(root.left);
             System.out.println(root.val);
-            bf(root.right);
+            pre(root.right);
         }
     }
 
     public static void back(TreeNode root) {
         if (root != null) {
-            bf(root.left);
-            bf(root.right);
-            System.out.println(root.val); 
+            back(root.left);
+            back(root.right);
+            System.out.println(root.val);
         }
     }
 
     public static void df(TreeNode root) {
-        if (root != null) {
-            df(root.left);
-            df(root.right);
-            System.out.println(root.val); 
-        }
+        pre(root);
     }
 
     public static void bf(TreeNode root) {
-
+        LinkedList<TreeNode> trs = new LinkedList<TreeNode>();
+        trs.addFirst(root);
+        while (!trs.isEmpty()) {
+            TreeNode tmp = trs.pollLast();
+            System.out.println(tmp.val);
+            if (tmp.left != null) {
+                trs.addFirst(tmp.left);
+            }
+            if (tmp.right != null) {
+                trs.addFirst(tmp.right);
+            }
+        }
     }
 
 }
