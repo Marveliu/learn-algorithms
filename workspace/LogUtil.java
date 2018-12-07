@@ -11,8 +11,31 @@ class LogUtil {
         System.out.println(t);
     }
 
+    public static void log(Boolean t) {
+        if (t) {
+            System.out.println("success");
+        }else{
+            System.out.println("fales");
+        }
+
+    }
+
+    public static void log(Double t) {
+        System.out.println(t);
+    }
+
     public static void log(int[] s) {
         System.out.println(Arrays.toString(s));
+    }
+
+    public static void log(List<Integer> s) {
+        for (int index = 0; index < s.size(); index++) {
+            LogUtil.log(s.get(index));
+        }
+    }
+
+    public static void br() {
+        System.out.println(" ");
     }
 
     public static void main(String[] args) {

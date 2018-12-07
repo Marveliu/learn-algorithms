@@ -53,4 +53,75 @@ public class TreeNode {
         }
     }
 
+    /**
+     * `8,#,9,#,10`,bp
+     * 
+     * @param s
+     * @return
+     */
+    public static TreeNode getRoot(String s) {
+        // check ..
+        String[] in = s.split(",");
+        LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
+        int index = 0;
+        TreeNode root = new TreeNode(Integer.valueOf(in[index]));
+        stack.addFirst(root);
+        while (true) {
+            TreeNode tmp = stack.pollLast();
+            index++;
+            if (index >= in.length)
+                break;
+            if (!in[index].equals("#")) {
+                tmp.left = new TreeNode(Integer.valueOf(in[index]));
+                stack.addFirst(tmp.left);
+            }
+            index++;
+            if (index >= in.length)
+                break;
+            if (!in[index].equals("#")) {
+                tmp.right = new TreeNode(Integer.valueOf(in[index]));
+                stack.addFirst(tmp.right);
+            }
+        }
+        return root;
+    }
+
+    /**
+     * “8,8,7,9,2,#,#,#,#,4,7”, 广度优先输入，# 代表叶子节点
+     * 
+     * @param s
+     */
+    public static TreeNode getRoot1(String s) {
+        // check ..
+        String[] in = s.split(",");
+        TreeNode root = new TreeNode(Integer.valueOf(in[0]));
+        getRoot1(root, in, 0, in.length - 1);
+        return root;
+    }
+
+    private static TreeNode getRoot1(TreeNode root, String[] s, int start, int end) {
+
+        if (root == null || start > end) {
+            return null;
+        }
+
+        int leftIndex = 2 * start + 1;
+        int rightIndex = 2 * start + 2;
+
+        if (leftIndex <= end && !s[leftIndex].equals("#")) {
+            root.left = new TreeNode(Integer.valueOf(s[leftIndex]));
+        }
+
+        if (rightIndex <= end && !s[rightIndex].equals("#")) {
+            root.right = new TreeNode(Integer.valueOf(s[rightIndex]));
+        }
+
+        if (root != null) {
+            getRoot1(root.left, s, leftIndex, s.length - 1);
+            getRoot1(root.right, s, rightIndex, s.length - 1);
+        }
+
+        return null;
+    }
+
 }
