@@ -6,6 +6,8 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution s = new Solution();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Input>>>");
 
         // test...
     }
