@@ -10,6 +10,8 @@ public class ListNode {
     }
 
     public static ListNode getHead(List<Integer> s) {
+        if (s.size() == 0)
+            return null;
         ListNode head = new ListNode(0);
         ListNode tmp = head;
         for (int i = 0; i < s.size(); i++) {
@@ -21,6 +23,8 @@ public class ListNode {
     }
 
     public static ListNode getHead(String s) {
+        if (s.equals(" "))
+            return null;
         String[] ss = s.split(",");
         ArrayList<Integer> arr = new ArrayList<Integer>();
         for (int i = 0; i < ss.length; i++) {
