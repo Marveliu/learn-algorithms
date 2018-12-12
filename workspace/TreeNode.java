@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class TreeNode {
@@ -39,17 +40,23 @@ public class TreeNode {
     }
 
     public static void bf(TreeNode root) {
+        if (root == null)
+            return;
         LinkedList<TreeNode> trs = new LinkedList<TreeNode>();
-        trs.addFirst(root);
+        trs.add(root);
         while (!trs.isEmpty()) {
-            TreeNode tmp = trs.pollLast();
-            System.out.println(tmp.val);
-            if (tmp.left != null) {
-                trs.addFirst(tmp.left);
+            LinkedList<TreeNode> tmp = new LinkedList<>();
+            while (!trs.isEmpty()) {
+                TreeNode t = trs.pollFirst();
+                if (t != null) {
+                    tmp.add(t.left);
+                    tmp.add(t.right);
+                    System.out.print(t.val);
+                    System.out.print(" ");
+                }
             }
-            if (tmp.right != null) {
-                trs.addFirst(tmp.right);
-            }
+            System.out.println();
+            trs = tmp;
         }
     }
 
@@ -62,6 +69,9 @@ public class TreeNode {
     public static TreeNode getRoot(String s) {
         // check ..
         String[] in = s.split(",");
+        if (in.length == 0) {
+            return null;
+        }
         LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
         int index = 0;
         TreeNode root = new TreeNode(Integer.valueOf(in[index]));
