@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.LinkedList;
+import java.util.*;
 
 public class TreeNode {
 
@@ -24,6 +23,48 @@ public class TreeNode {
             pre(root.left);
             System.out.println(root.val);
             pre(root.right);
+        }
+    }
+
+    public static void preorderTraversal(TreeNode root) {
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode p = root;
+        while (!stack.isEmpty() || p != null) {
+            if (p != null) {
+                stack.push(p);
+                // 访问根节点
+                System.out.print(p.val + " ");
+                p = p.left;
+            } else {
+                p = stack.pop();
+                p = p.right;
+            }
+        }
+    }
+
+    // This approach is based on Morris's article
+    // 空间复杂度是O(1)
+    public static void morrisTraversal(TreeNode root) {
+        TreeNode node = root;
+        while (node != null) {
+            if (node.left == null) {
+                System.out.print(node.val + " ");
+                node = node.right;
+            } else {
+                // 中序排列前任节点
+                TreeNode predecessor = node.left;
+                while (predecessor.right != null && (predecessor.right != node)) {
+                    predecessor = predecessor.right;
+                }
+                if(predecessor.right == null){
+                    System.out.print(node.val+" ");
+                    predecessor.right = node;
+                    node = node.left;
+                }else{
+                    predecessor.right = null;
+                    node = node.right;
+                }
+            }
         }
     }
 

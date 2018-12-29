@@ -25,12 +25,12 @@ run(){
     elif [ $1 == "save" ]; then
         echo "save solution.class"
         # 统计数目
-        cd offer
+        cd leetcode
         num=`ls -l |grep "^-"|wc -l`
         echo ${num}
         cd ..
         let num++
-        cp ./workspace/Solution.java ./offer/${num}.java
+        cp ./workspace/Solution.java ./leetcode/${num}.java
     else  $1 == "clear"
         clean
     fi
