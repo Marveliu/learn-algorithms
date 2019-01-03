@@ -10,7 +10,13 @@ import java.util.Comparator;
 import java.util.Map;
 import java.util.TreeMap;
 
-public class Solution {
+// 参考: https://www.cnblogs.com/skywang12345/p/3711532.html
+// 图算法实现:
+// bfs,dfs
+// prim kruskal
+// dijkstar floyd
+
+public class Graph {
 
     private int mEdgNum; // 边的数量
     private char[] mVexs; // 顶点集合
@@ -22,7 +28,7 @@ public class Solution {
      *
      * 参数说明： vexs -- 顶点数组 matrix-- 矩阵(数据)
      */
-    public Solution(char[] vexs, int[][] matrix) {
+    public Graph(char[] vexs, int[][] matrix) {
 
         // 初始化"顶点数"和"边数"
         int vlen = vexs.length;
@@ -321,7 +327,7 @@ public class Solution {
      * 
      * @param vs
      */
-    public void floyd(int vs) {
+    public void floyd() {
 
         System.out.println("FLOYD:");
 
@@ -414,15 +420,16 @@ public class Solution {
         char[] vexs = { 'A', 'B', 'C', 'D', 'E', 'F', 'G' };
         int matrix[][] = {
                 /* A *//* B *//* C *//* D *//* E *//* F *//* G */
-                /* A */ { 0, 12, INF, INF, INF, 16, 14 }, /* B */ { 12, 0, 10, INF, INF, 7, INF },
-                /* C */ { INF, 10, 0, 3, 5, 6, INF }, /* D */ { INF, INF, 3, 0, 4, INF, INF },
-                /* E */ { INF, INF, 5, 4, 0, 2, 8 }, /* F */ { 16, 7, 6, INF, 2, 0, 9 },
+                /* A */ { 0, 12, INF, INF, INF, 16, 14 }, 
+                /* B */ { 12, 0, 10, INF, INF, 7, INF },
+                /* C */ { INF, 10, 0, 3, 5, 6, INF }, 
+                /* D */ { INF, INF, 3, 0, 4, INF, INF },
+                /* E */ { INF, INF, 5, 4, 0, 2, 8 }, 
+                /* F */ { 16, 7, 6, INF, 2, 0, 9 },
                 /* G */ { 14, INF, INF, INF, 8, 9, 0 } };
-        Solution pG;
-
+        Graph pG;
         // 采用已有的"图"
-        pG = new Solution(vexs, matrix);
-
+        pG = new Graph(vexs, matrix);
         pG.print(); // 打印图
         System.out.println("DFS:");
         pG.DFS(0, new boolean[vexs.length]);
@@ -433,18 +440,19 @@ public class Solution {
         pG.kruskal(); // Kruskal算法生成最小生成树
         // dijkstra算法获取"第4个顶点"到其它各个顶点的最短距离
         pG.dijkstra(3);
-        pG.floyd(3);
+        // floyd算法获取所有点对的距离
+        pG.floyd();
     }
 }
 
 // Martix Graph:
-// 0 12 # # # 16 14
-// 12 0 10 # # 7 #
-// # 10 0 3 5 6 #
-// # # 3 0 4 # #
-// # # 5 4 0 2 8
-// 16 7 6 # 2 0 9
-// 14 # # # 8 9 0
+//          0        12         #         #         #        16        14
+//         12         0        10         #         #         7         #
+//          #        10         0         3         5         6         #
+//          #         #         3         0         4         #         #
+//          #         #         5         4         0         2         8
+//         16         7         6         #         2         0         9
+//         14         #         #         #         8         9         0
 // DFS:
 // BAFCDEG
 // DFS:
@@ -471,3 +479,65 @@ public class Solution {
 // DCEFGBA
 // vd:[22, 13, 3, 0, 4, 6, 12]
 // vp:[5, 5, 3, 3, 3, 4, 4]
+// FLOYD:
+
+// [0, 12, 2147483647, 2147483647, 2147483647, 16, 14]
+// [12, 0, 10, 2147483647, 2147483647, 7, 2147483647]
+// [2147483647, 10, 0, 3, 5, 6, 2147483647]
+// [2147483647, 2147483647, 3, 0, 4, 2147483647, 2147483647]
+// [2147483647, 2147483647, 5, 4, 0, 2, 8]
+// [16, 7, 6, 2147483647, 2, 0, 9]
+// [14, 2147483647, 2147483647, 2147483647, 8, 9, 0]
+
+// [0, 1, 2, 3, 4, 5, 6]
+// [0, 1, 2, 3, 4, 5, 6]
+// [0, 1, 2, 3, 4, 5, 6]
+// [0, 1, 2, 3, 4, 5, 6]
+// [0, 1, 2, 3, 4, 5, 6]
+// [0, 1, 2, 3, 4, 5, 6]
+// [0, 1, 2, 3, 4, 5, 6]
+// floyd:
+//  0  12  22  22  18  16  14
+// 12   0  10  13   9   7  16
+// 22  10   0   3   5   6  13
+// 22  13   3   0   4   6  12
+// 18   9   5   4   0   2   8
+// 16   7   6   6   2   0   9
+// 14  16  13  12   8   9   0
+
+// [0, 12, 22, 22, 18, 16, 14]
+// [12, 0, 10, 13, 9, 7, 16]
+// [22, 10, 0, 3, 5, 6, 13]
+// [22, 13, 3, 0, 4, 6, 12]
+// [18, 9, 5, 4, 0, 2, 8]
+// [16, 7, 6, 6, 2, 0, 9]
+// [14, 16, 13, 12, 8, 9, 0]
+
+// [0, 1, 1, 5, 5, 5, 6]
+// [0, 1, 2, 2, 5, 5, 5]
+// [1, 1, 2, 3, 4, 5, 4]
+// [4, 2, 2, 3, 4, 4, 4]
+// [5, 5, 2, 3, 4, 5, 6]
+// [0, 1, 2, 4, 4, 5, 6]
+// [0, 5, 4, 4, 4, 5, 6]
+// v0-v1  weight:12  path:A->B
+// v0-v2  weight:22  path:A->B->C
+// v0-v3  weight:22  path:A->F->E->D
+// v0-v4  weight:18  path:A->F->E
+// v0-v5  weight:16  path:A->F
+// v0-v6  weight:14  path:A->G
+// v1-v2  weight:10  path:B->C
+// v1-v3  weight:13  path:B->C->D
+// v1-v4  weight:9  path:B->F->E
+// v1-v5  weight:7  path:B->F
+// v1-v6  weight:16  path:B->F->G
+// v2-v3  weight:3  path:C->D
+// v2-v4  weight:5  path:C->E
+// v2-v5  weight:6  path:C->F
+// v2-v6  weight:13  path:C->E->G
+// v3-v4  weight:4  path:D->E
+// v3-v5  weight:6  path:D->E->F
+// v3-v6  weight:12  path:D->E->G
+// v4-v5  weight:2  path:E->F
+// v4-v6  weight:8  path:E->G
+// v5-v6  weight:9  path:F->G

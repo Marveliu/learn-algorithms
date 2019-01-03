@@ -1,21 +1,5 @@
 {
-    "configurations": [{
-            "type": "java",
-            "name": "CodeLens (Launch) - Knapsack",
-            "request": "launch",
-            "mainClass": "Knapsack1",
-            "console": "integratedTerminal"
-        },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - link",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
-            "mainClass": "link",
-            "args": ""
-        },
+    "configurations": [
         {
             "type": "java",
             "name": "CodeLens (Launch) - Solution",
@@ -36,15 +20,5 @@
             "mainClass": "Main",
             "args": ""
         },
-        {
-            "type": "java",
-            "name": "CodeLens (Launch) - test",
-            "request": "launch",
-            "cwd": "${workspaceFolder}",
-            "console": "internalConsole",
-            "stopOnEntry": false,
-            "mainClass": "test",
-            "args": ""
-        }
     ]
 }
