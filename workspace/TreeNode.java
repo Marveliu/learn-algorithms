@@ -1,5 +1,7 @@
 import java.util.*;
 
+import sun.security.util.Length;
+
 public class TreeNode {
 
     int val;
@@ -56,11 +58,11 @@ public class TreeNode {
                 while (predecessor.right != null && (predecessor.right != node)) {
                     predecessor = predecessor.right;
                 }
-                if(predecessor.right == null){
-                    System.out.print(node.val+" ");
+                if (predecessor.right == null) {
+                    System.out.print(node.val + " ");
                     predecessor.right = node;
                     node = node.left;
-                }else{
+                } else {
                     predecessor.right = null;
                     node = node.right;
                 }
@@ -84,18 +86,31 @@ public class TreeNode {
         if (root == null)
             return;
         LinkedList<TreeNode> trs = new LinkedList<TreeNode>();
+
         trs.add(root);
-        while (!trs.isEmpty()) {
+
+        int height = getHeight(root, 0);
+        int dist = 0;
+        System.out.print(root.val);
+        System.out.println();
+        while (!trs.isEmpty() && dist < height) {
             LinkedList<TreeNode> tmp = new LinkedList<>();
             while (!trs.isEmpty()) {
                 TreeNode t = trs.pollFirst();
-                if (t != null) {
+                if (t.left != null) {
                     tmp.add(t.left);
+                    System.out.print(t.left.val + " ");
+                } else {
+                    System.out.print("# ");
+                }
+                if (t.right != null) {
+                    System.out.print(t.right.val + " ");
                     tmp.add(t.right);
-                    System.out.print(t.val);
-                    System.out.print(" ");
+                } else {
+                    System.out.print("# ");
                 }
             }
+            dist++;
             System.out.println();
             trs = tmp;
         }
@@ -135,6 +150,13 @@ public class TreeNode {
             }
         }
         return root;
+    }
+
+    public static int getHeight(TreeNode root, int height) {
+        if (root == null)
+            return height;
+        height++;
+        return Math.max(getHeight(root.left, height), getHeight(root.right, height));
     }
 
     /**
