@@ -1,8 +1,11 @@
 import java.util.*;
 
+// 思路bfs
 public class Solution {
 
-    // impl...
+    public void connect(TreeLinkNode root) {
+
+    }
 
     public static void main(String[] args) {
         Solution s = new Solution();
