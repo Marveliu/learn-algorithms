@@ -12,19 +12,19 @@ public class TreeNode {
         val = x;
     }
 
-    public static void in(TreeNode root) {
+    public static void pre(TreeNode root) {
         if (root != null) {
             System.out.println(root.val);
-            in(root.left);
-            in(root.right);
+            pre(root.left);
+            pre(root.right);
         }
     }
 
-    public static void pre(TreeNode root) {
+    public static void in(TreeNode root) {
         if (root != null) {
-            pre(root.left);
+            in(root.left);
             System.out.println(root.val);
-            pre(root.right);
+            in(root.right);
         }
     }
 
