@@ -1,0 +1,79 @@
+import java.util.*;
+
+public class Solution {
+
+    public List<TreeNode> generateTrees(int n) {
+        List<List<TreeNode>> G = new ArrayList<>();
+        G.add(new ArrayList<>());
+        List<TreeNode> tmp = new ArrayList<>();
+        tmp.add(new TreeNode(1));
+        G.add(tmp);
+
+        for (int i = 2; i <= n; ++i) {
+            List<TreeNode> nodes = new ArrayList<>();
+            for (int j = 1; j <= i; ++j) {
+                List<TreeNode> left = G.get(j - 1);
+                List<TreeNode> right = G.get(i - j);
+                if (left.size() > right.size()) {
+                    for (int l = 0; l < left.size(); l++) {
+                        TreeNode root = new TreeNode(j);
+                        root.left = copy(left.get(l), 0);
+                        for (int r = 0; r < right.size(); r++) {
+                            root.right = copy(right.get(r), j);
+                        }
+                        nodes.add(root);
+                    }
+                } else {
+                    for (int r = 0; r < right.size(); r++) {
+                        TreeNode root = new TreeNode(j);
+                        root.right = copy(right.get(r), j);
+                        for (int l = 0; l < left.size(); l++) {
+                            root.left = copy(left.get(l), 0);
+                        }
+                        nodes.add(root);
+                    }
+                }
+            }
+            G.add(nodes);
+        }
+        return G.get(n);
+    }
+
+    public TreeNode copy(TreeNode root, int diff) {
+        if (root == null)
+            return null;
+        TreeNode copy = new TreeNode(root.val + diff);
+        copy.left = copy(root.left, diff);
+        copy.right = copy(root.right, diff);
+        return copy;
+    }
+
+    public int numTrees(int n) {
+        int[] G = new int[n + 1];
+        G[0] = G[1] = 1;
+
+        for (int i = 2; i <= n; ++i) {
+            for (int j = 1; j <= i; ++j) {
+                G[i] += G[j - 1] * G[i - j];
+            }
+        }
+
+        return G[n];
+    }
+
+    public static void main(String[] args) {
+        Solution s = new Solution();
+        while (true) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Input>>>");
+            int test = sc.nextInt();
+            List<TreeNode> nodes = s.generateTrees(test);
+            System.out.println("expect:" + s.numTrees(test));
+            System.out.println("size  " + nodes.size());
+            // for (TreeNode var : nodes) {
+            // TreeNode.bf(var);
+            // System.out.println();
+            // }
+        }
+    }
+}
