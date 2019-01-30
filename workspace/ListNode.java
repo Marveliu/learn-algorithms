@@ -34,9 +34,12 @@ public class ListNode {
     }
 
     public static void log(ListNode head) {
-        while (head != null) {
-            System.out.println(head.val);
+        if (head == null)
+            return;
+        while (head.next != null) {
+            System.out.print(head.val + ",");
             head = head.next;
         }
+        System.out.println(head.val);
     }
 }
