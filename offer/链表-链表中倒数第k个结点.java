@@ -1,12 +1,18 @@
 import java.util.*;
-// 输入一个链表，输出该链表中倒数第k个结点。
 
+/**
+ * 链表中倒数第k个结点
+ * 链表
+ * 
+ * https://www.nowcoder.com/practice/529d3ae5a407492994ad2a246518148a
+ */
 public class Solution {
 
     public ListNode FindKthToTail(ListNode head, int k) {
         ListNode tmp = head;
         ListNode res = head;
         while (tmp != null) {
+            // 计算k，再遍历
             if (k != 0) {
                 k--;
             } else {
@@ -19,12 +25,13 @@ public class Solution {
         }
         return res;
     }
-    // impl...
 
     public static void main(String[] args) {
         Solution s = new Solution();
-        ListNode head = ListNode.getHead("1,2,3,4,5");
-        LogUtil.log(s.FindKthToTail(head, 9).val);
-        // test...
+        while (true) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Input>>>");
+            ListNode.log(s.FindKthToTail(ListNode.getHead(StringUtil.nextLineFilter(sc)), sc.nextInt()));
+        }
     }
 }

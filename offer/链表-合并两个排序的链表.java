@@ -1,7 +1,12 @@
 import java.util.*;
-// 输入两个单调递增的链表，输出两个链表合成后的链表，当然我们需要合成后的链表满足单调不减规则。
 
-// 递归，每个递归体计算下个节点
+/**
+ * 合并两个排序的链表
+ * 
+ * 思路:dfs
+ * 
+ * https://www.nowcoder.com/practice/d8b6b4358f774294a89de2a6ac4d9337
+ */
 public class Solution {
 
     ListNode root = new ListNode(0);
@@ -10,7 +15,6 @@ public class Solution {
     public ListNode Merge(ListNode list1, ListNode list2) {
         ListNode p1 = null;
         ListNode p2 = null;
-
         if (list1 == null) {
             end.next = list2;
         } else if (list2 == null) {
@@ -33,10 +37,11 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution s = new Solution();
-        ListNode p1 = ListNode.getHead("1,2,3,4");
-        ListNode p2 = ListNode.getHead("1,5");
-        ListNode.log(s.Merge(p1, p2));
-
-        // test...
+        while (true) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Input>>>");
+            ListNode.log(s.Merge(ListNode.getHead(StringUtil.nextLineFilter(sc)),
+                    ListNode.getHead(StringUtil.nextLineFilter(sc))));
+        }
     }
 }

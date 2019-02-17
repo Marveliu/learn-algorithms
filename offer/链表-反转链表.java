@@ -1,8 +1,13 @@
 import java.util.*;
-// 输入一个链表，反转链表后，输出新链表的表头。
+
+/**
+ * 反转链表
+ * 思路:遍历+头插法
+ * 
+ * https://www.nowcoder.com/practice/75e878df47f24fdc9dc3e400ec6058ca
+ */
 public class Solution {
 
-    // impl...
     public ListNode ReverseList(ListNode head) {
         ListNode res = head;
         if (head == null)
@@ -11,9 +16,6 @@ public class Solution {
         res.next = null;
         while (point != null) {
             ListNode tmp = null;
-            // if (point.next.next != null) {
-            // tmp = point.next.next;
-            // }
             tmp = point.next;
             point.next = res;
             res = point;
@@ -24,8 +26,10 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution s = new Solution();
-        ListNode head = ListNode.getHead("1,2,3,4,5,9");
-        ListNode.log(s.ReverseList(head));
-        // test...
+        while (true) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Input>>>");
+            ListNode.log(ListNode.getHead(StringUtil.nextLineFilter(sc)));
+        }
     }
 }

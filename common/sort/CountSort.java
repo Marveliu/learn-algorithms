@@ -1,5 +1,7 @@
 // 计数排序
-
+// 非比较排序
+// 时间复杂度：o(n)
+// 空间复杂度：o(1)
 class CountSort {
 
     public static int[] sort(int[] s, int top) {

@@ -272,13 +272,11 @@ public class Graph {
      * 即，统计图中"顶点vs"到其它各个顶点的最短路径。
      *
      * 参数说明： vs -- 起始顶点(start vertex)
-     * 即计算"顶点vs"到其它顶点的最短路径。 prev --
-     * 前驱顶点数组。即，prev[i]的值是"顶点vs"到"顶点i"的最短路径所经历的全部顶点中，位于"顶点i"之前的那个顶点。
+     * 即计算"顶点vs"到其它顶点的最短路径。 prev -- 前驱顶点数组。
+     * 即prev[i]的值是"顶点vs"到"顶点i"的最短路径所经历的全部顶点中，位于"顶点i"之前的那个顶点。
      *  dist
      * --
      * 长度数组。即，dist[i]是"顶点vs"到"顶点i"的最短路径的长度。
-     * 
-     * 
      */
     public void dijkstra(int vs) {
         System.out.println("DIJKSTRA:");

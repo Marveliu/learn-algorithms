@@ -4,6 +4,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 // 桶排序
+// 计数排序也是一种桶排序
+// 比较排序
+// 时间复杂度:o(n)
+// 空间复杂度:o(n)
 class BucketSort {
 
     /**

@@ -1,6 +1,11 @@
 import java.util.*;
-// 从上往下打印出二叉树的每个节点，同层节点从左至右打印。
-// bp
+/**
+ * 从上往下打印二叉树
+ * 
+ * bfs
+ * 
+ * https://www.nowcoder.com/practice/7fe2212963db4790b57431d9ed259701
+ */
 public class Solution {
 
     public ArrayList<Integer> PrintFromTopToBottom(TreeNode root) {
@@ -23,6 +28,5 @@ public class Solution {
     public static void main(String[] args) {
         Solution s = new Solution();
         LogUtil.log(s.PrintFromTopToBottom(TreeNode.getRoot("10,6,14,4,8,12,16")));
-        // test...
     }
 }

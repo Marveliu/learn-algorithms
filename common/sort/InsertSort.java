@@ -1,5 +1,7 @@
-// 插入排序实现， 从小到大
-
+// 插入排序
+// 比较排序
+// 时间复杂度: o(n^2)
+// 空间复杂度: o(1)
 class InsertSort {
 
     static int[] cal(int[] source) {

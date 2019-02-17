@@ -1,9 +1,14 @@
 import java.util.*;
 
-// 给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。
+/**
+ * 数值的整数次方
+ * 给定一个double类型的浮点数base和int类型的整数exponent。求base的exponent次方。
+ * 位运损
+ * 
+ * https://www.nowcoder.com/practice/1a834e5e3e1a4b7ba251417554e07c00
+ */
 public class Solution {
 
-    // impl...
     public double Power(double base, int exponent) {
         if (exponent == 0) {
             return 1;
@@ -14,17 +19,18 @@ public class Solution {
         return cal(base, exponent);
     }
 
-    // 1. 普通实现
+    // 1. 遍历
     // public double cal(double base, int ex) {
-    // double tmp = base;
-    // while (ex != 1) {
-    // base = base * tmp;
-    // ex--;
-    // }
-    // return base;
+    //     double tmp = base;
+    //     while (ex != 1) {
+    //         base = base * tmp;
+    //         ex--;
+    //     }
+    //     return base;
     // }
 
-    // 2. 注意移位运算是针对整数的，因为小数存储的方式都是科学计数法，补充一下，负数二进制是其补码，取正取反加1
+    // 优化求方，按照二级制位数进行分解
+    // 3^3 = 3^2*3^1 3的二进制 11
     public double cal(double base, int ex) {
         double res = 1;
         double current = 1;
@@ -40,7 +46,10 @@ public class Solution {
 
     public static void main(String[] args) {
         Solution s = new Solution();
-        LogUtil.log(s.Power(2, -2));
-        // test...
+        while (true) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Input>>>");
+            System.out.println(s.Power(sc.nextDouble(), sc.nextInt()));
+        }
     }
 }

@@ -1,7 +1,18 @@
 import java.util.*;
 
-// 输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求不能创建任何新的结点，只能调整树中结点指针的指向。
-// 递归，l 为小于当前值之中最大的节点，r为大于当前值最小的节点，root.left指向l,root.right指向r,并且调整时主要l和r的引用
+/**
+ * 二叉搜索树与双向链表
+ * 输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表
+ * 
+ * dfs前序遍历
+ * l为小于当前root节点之中的最大的节点
+ * r为大于当前root节点之中值最小的节点
+ * root.left指向l
+ * root.right指向
+ * 并且更新l和r的引用
+ * 
+ * https://www.nowcoder.com/practice/947f6eb80d944a84850b0538bf0ec3a5
+ */
 public class Solution {
 
     public TreeNode Convert(TreeNode pRootOfTree) {
@@ -42,7 +53,6 @@ public class Solution {
         // TreeNode test = TreeNode.getRoot(sc.nextLine());
         TreeNode res = s.Convert(null);
         LogUtil.log(res.val);
-        // test...
     }
 }
 

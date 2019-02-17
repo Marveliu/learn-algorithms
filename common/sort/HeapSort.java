@@ -1,17 +1,13 @@
 // 堆排序
+// 比较排序
+// 时间复杂度：o(logn)
+// 空间复杂度：o(1)
 class HeapSort {
 
-    /**
-     * 获得左子节点
-     * 
-     * @param s 数组
-     * @param i 父节点下标
-     * @return
-     */
+    // 获得左右子节点
     private static Integer getLeft(int i) {
         return 2 * i;
     }
-
     private static Integer getRight(int i) {
         return 2 * i + 1;
     }
@@ -57,11 +53,6 @@ class HeapSort {
         }
     }
 
-    /**
-     * heap sort
-     * 
-     * @param s
-     */
     public static void heapSort(int[] s) {
         buildMaxHeap(s);
         int len = s.length;

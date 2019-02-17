@@ -1,7 +1,14 @@
 import java.util.*;
 
-// 输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
-// 两个递归...
+/**
+ * 树的子结构
+ * 
+ * 思路：遍历root1所有的节点，作为根节点和root2进行比较
+ * 比较的过程也是dfs
+ * 时间复杂度:o(n*m)
+ * 
+ * https://www.nowcoder.com/practice/6e196c44c7004d15b1610b9afca8bd88
+ */
 public class Solution {
 
     public boolean HasSubtree(TreeNode root1, TreeNode root2) {
@@ -30,14 +37,12 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Solution s = new Solution();
-        // TreeNode t1 = TreeNode.getRoot("8,8,7,9,2,#,#,#,#,4,7");
-        // TreeNode t2 = TreeNode.getRoot("8,9,2");
-        // LogUtil.log(s.HasSubtree(t1, t2));
-        // TreeNode.df();
-
-        TreeNode t1 = TreeNode.getRoot("8,#,9,#,10,#");
-        TreeNode.df(t1);
-
+        Solution s = new Solution();    
+        while (true) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Input>>>");
+            TreeNode t1 = TreeNode.getRoot(StringUtil.nextLineFilter(sc));
+            TreeNode.df(t1);
+        }
     }
 }

@@ -1,27 +1,35 @@
 import java.util.*;
-// 数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例如输入一个长度为9的数组{1,2,3,2,2,2,5,4,2}。由于数字2在数组中出现了5次，超过数组长度的一半，因此输出2。如果不存在则输出0。
+
+/**
+ * 数组中出现次数超过一半的数字
+ * 
+ * 摩尔投票算法
+ * 
+ * https://www.nowcoder.com/practice/e8a1b01a2df14cb2b228b30ee6a92163
+ */
 public class Solution {
 
     // hashMap O(n)
     // public int MoreThanHalfNum_Solution(int[] array) {
-    // int res = 0;
-    // Map<Integer, Integer> count = new HashMap<>();
-    // for (int i = 0; i < array.length; i++) {
-    // if (count.containsKey(array[i])) {
-    // int tmp = count.get(array[i]) + 1;
-    // count.put(array[i], tmp);
-    // } else {
-    // count.put(array[i], 1);
-    // }
-    // if (count.get(array[i]) > array.length / 2) {
-    // res = array[i];
-    // break;
-    // }
-    // }
-    // return res;
+    //     int res = 0;
+    //     Map<Integer, Integer> count = new HashMap<>();
+    //     for (int i = 0; i < array.length; i++) {
+    //         if (count.containsKey(array[i])) {
+    //             int tmp = count.get(array[i]) + 1;
+    //             count.put(array[i], tmp);
+    //         } else {
+    //             count.put(array[i], 1);
+    //         }
+    //         if (count.get(array[i]) > array.length / 2) {
+    //             res = array[i];
+    //             break;
+    //         }
+    //     }
+    //     return res;
     // }
     
     // 利用数组的性质，O(n)
+    // 摩尔投票算法
     public int MoreThanHalfNum_Solution(int[] array) {
         if (array.length == 0)
             return 0;
