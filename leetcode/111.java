@@ -42,6 +42,7 @@ public class Solution {
         Solution s = new Solution();
         Scanner sc = new Scanner(System.in);
         while (true) {
+            System.out.println("Input>>>");
             int n = sc.nextInt();
             long[] array = new long[n];
             for (int i = 0; i < n; i++) {
