@@ -4,7 +4,7 @@ import java.util.*;
 /**
  * 归并排序
  * 比较排序
- * 时间复杂度:o(logn)
+ * 时间复杂度:o(nlogn)
  * 空间复杂度:o(n)
  */
 public class mergeSort {

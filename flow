@@ -15,22 +15,24 @@ run(){
             git commit -m$2
             git push
         fi    
-	elif [ $1 == "clean" ]; then
+	elif [ $1 == "reset" ]; then
         echo "rm *.class"
         cd workspace
-        mv Solution.java Solution.java.tmp
-        cp Solution.java.back Solution.java
+        # mv Solution.java Solution.java.tmp
+        # cp Solution.java.back Solution.java
+        mv $2.java $2.java.tmp
+        cp $2.java.back $2.java
         cd ..
 		clean
     elif [ $1 == "save" ]; then
         echo "save solution.class"
         # 统计数目
-        cd leetcode
-        num=`ls -l |grep "^-"|wc -l`
-        echo ${num}
-        cd ..
-        let num++
-        cp ./workspace/Solution.java ./leetcode/${num}.java
+        # cd $2
+        # num=`ls -l |grep "^-"|wc -l`
+        # echo ${num}
+        # cd ..
+        # let num++
+        cp ./workspace/Solution.java ./$2/$3.java
     else  $1 == "clear"
         clean
     fi

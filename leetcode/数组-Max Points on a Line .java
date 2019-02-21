@@ -1,7 +1,19 @@
 import java.util.*;
-// Given n points on a 2D plane, find the maximum number of points that lie on the same straight line.
 
+/**
+ * 149. Max Points on a Line 
+ * https://leetcode.com/problems/max-points-on-a-line/
+ * 
+ * Given n points on a 2D plane, find the maximum number of points that lie on
+ * the same straight line.
+ * 
+ * 
+ * 两次循环,，找到所有可能的(n1,n2) , 进行斜率的匹配，其中运用到了最大公约数（辗转相除法）
+ * 时间复杂度O(n^2)
+ * 
+ */
 public class Solution {
+
     public int maxPoints(Point[] points) {
         if (points.length == 0)
             return 0;
@@ -33,13 +45,6 @@ public class Solution {
                     max = Math.max(max, count + 1 + same);
                 }
             }
-            System.out
-                    .println(String.format("(%d,%d): same %d, v %d, h %d", base.x, base.y, same, vertical, horizontal));
-            for (Map.Entry<String, Integer> var : slopes.entrySet()) {
-                System.out.print(var.getValue());
-                System.out.print(" ");
-            }
-            System.out.println();
             max = Math.max(max, same + vertical + 1);
             max = Math.max(max, same + horizontal + 1);
             slopes.clear();

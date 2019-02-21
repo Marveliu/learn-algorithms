@@ -1,9 +1,12 @@
 import java.util.*;
-// Evaluate the value of an arithmetic expression in Reverse Polish Notation.
-// Valid operators are+,-,*,/. Each operand may be an integer or another expression.
-// Some examples:
-
-// stack
+/**
+ * 150. Evaluate Reverse Polish Notation
+ * https://leetcode.com/problems/evaluate-reverse-polish-notation/
+ * 
+ * 加减乘除表达式
+ * 思路：压栈的同时，如果遇到非数字则进行计算并继续压栈
+ * 
+ */
 public class Solution {
 
     public int evalRPN(String[] tokens) {
@@ -14,7 +17,6 @@ public class Solution {
                 ll.add(Integer.valueOf(tmp));
                 continue;
             }
-            // if(ll.size() <2) error
             int a = ll.pollLast();
             int b = ll.pollLast();
             if (tmp.equals("+")) {
@@ -24,13 +26,13 @@ public class Solution {
             } else if (tmp.equals("*")) {
                 ll.add(a * b);
             } else {
-                // "/"
                 ll.add(b / a);
             }
         }
         return ll.pollLast();
     }
 
+    // 考虑正负数
     boolean isNum(String s) {
         char[] c = s.toCharArray();
         if (c.length == 0)

@@ -1,6 +1,6 @@
-// p排
+// 快排
 // 比较排序
-// 时间复杂度:o(logn)
+// 时间复杂度:o(nlogn)
 // 空间复杂度:o(1)
 
 class QuickSort {
@@ -23,7 +23,7 @@ class QuickSort {
     }
 
     /**
-     * 划分
+     * 划分并排序
      * 
      * @param s
      * @param p

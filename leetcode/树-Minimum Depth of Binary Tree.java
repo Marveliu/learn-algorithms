@@ -1,9 +1,20 @@
 import java.util.*;
-// Given a binary tree, find its minimum depth.The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
-// bfs
+
+/**
+ * 
+ * Minimum Depth of Binary Tree
+ * https://leetcode.com/problems/minimum-depth-of-binary-tree/ 
+ * 
+ * Given a binary tree, find its minimum depth. The minimum depth is the number of nodes along
+ * the shortest path from the root node down to the nearest leaf node.
+ * 
+ * bfs
+ * 
+ * 
+ */
 public class Solution {
 
-    public int run(TreeNode root) {
+    public int minDepth(TreeNode root) {
         if (root == null)
             return 0;
         LinkedList<TreeNode> lt = new LinkedList<>();
@@ -41,7 +52,7 @@ public class Solution {
             Scanner sc = new Scanner(System.in);
             System.out.println("Input>>>");
             TreeNode test = TreeNode.getRoot(sc.nextLine());
-            int ans = s.run(test);
+            int ans = s.minDepth(test);
             System.out.println(ans);
         }
     }

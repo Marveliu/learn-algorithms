@@ -1,4 +1,7 @@
 // 冒泡排序
+// 稳定
+// 时间复杂度：o(n^2)
+// 空间复杂度：o(1)
 class BubbleSort {
 
     public static void sort(int[] s) {

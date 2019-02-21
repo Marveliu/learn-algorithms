@@ -1,6 +1,6 @@
 // 堆排序
 // 比较排序
-// 时间复杂度：o(logn)
+// 时间复杂度：o(nlogn+k)
 // 空间复杂度：o(1)
 class HeapSort {
 
@@ -8,6 +8,7 @@ class HeapSort {
     private static Integer getLeft(int i) {
         return 2 * i;
     }
+
     private static Integer getRight(int i) {
         return 2 * i + 1;
     }

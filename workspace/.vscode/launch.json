@@ -1,6 +1,5 @@
 {
-    "configurations": [
-        {
+    "configurations": [{
             "type": "java",
             "name": "CodeLens (Launch) - MatrixUDG",
             "request": "launch",
@@ -22,6 +21,7 @@
             "console": "integratedTerminal",
             "stopOnEntry": false,
             "mainClass": "Solution",
+            // "mainClass": "Main",
             "args": ""
         }
     ]
