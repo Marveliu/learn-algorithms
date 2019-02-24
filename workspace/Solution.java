@@ -1,57 +1,49 @@
 import java.util.*;
 
-/**
- * 29. Divide Two Integers
- * https://leetcode.com/problems/divide-two-integers/
- * 
- * 递归，二分查找
- */
 public class Solution {
 
-    public int divide(int dividend, int divisor) {
-        // Reduce the problem to positive long integer to make it easier.
-        // Use long to avoid integer overflow cases.
-        int sign = 1;
-        if ((dividend > 0 && divisor < 0) || (dividend < 0 && divisor > 0))
-            sign = -1;
-        long ldividend = Math.abs((long) dividend);
-        long ldivisor = Math.abs((long) divisor);
+    List<List<Integer>> ans = null;
+    Set<String> sets = null;
 
-        // Take care the edge cases.
-        if (ldivisor == 0)
-            return Integer.MAX_VALUE;
-        if ((ldividend == 0) || (ldividend < ldivisor))
-            return 0;
-
-        long lans = ldivide(ldividend, ldivisor);
-
-        int ans;
-        if (lans > Integer.MAX_VALUE) { // Handle overflow.
-            ans = (sign == 1) ? Integer.MAX_VALUE : Integer.MIN_VALUE;
-        } else {
-            ans = (int) (sign * lans);
-        }
+    public List<List<Integer>> fourSum(int[] nums, int target) {
+        ans = new ArrayList<>();
+        sets = new HashSet<>();
+        int[] v = new int[nums.length];
+        dfs(nums, v, 0, target, 4, -1);
         return ans;
     }
 
-    private long ldivide(long ldividend, long ldivisor) {
-        // Recursion exit condition
-        if (ldividend < ldivisor)
-            return 0;
-
-        // Find the largest multiple so that (divisor * multiple <= dividend),
-        // whereas we are moving with stride 1, 2, 4, 8, 16...2^n for performance
-        // reason.
-        // Think this as a binary search.
-        long sum = ldivisor;
-        long multiple = 1;
-        while ((sum + sum) <= ldividend) {
-            sum += sum;
-            multiple += multiple;
+    public void dfs(int[] nums, int[] v, int sum, int target, int n, int last) {
+        if (n < 0)
+            return;
+        if (target == sum && n == 0) {
+            add(v, nums);
+            return;
         }
-        // Look for additional value for the multiple from the reminder (dividend - sum)
-        // recursively.
-        return multiple + ldivide(ldividend - sum, ldivisor);
+        for (int i = last + 1; i < nums.length; i++) {
+            dfs(nums, v, sum, target, n, i);
+            v[i] = 1;
+            dfs(nums, v, sum + nums[i], target, n - 1, i);
+            v[i] = 0;
+        }
+    }
+
+    public void add(int[] v, int[] nums) {
+        List<Integer> res = new ArrayList<>();
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < v.length; i++) {
+            if (v[i] == 1) {
+                res.add(nums[i]);
+                sb.append(v[i]);
+            }
+        }
+        String s = sb.toString();
+        if (!sets.contains(s)) {
+            sets.add(s);
+        } else {
+            return;
+        }
+        ans.add(res);
     }
 
     public static void main(String[] args) {
@@ -59,7 +51,9 @@ public class Solution {
         while (true) {
             Scanner sc = new Scanner(System.in);
             System.out.println("Input>>>");
-            System.out.println(s.divide(sc.nextInt(), sc.nextInt()));
+            for (List<Integer> var : s.fourSum(StringUtil.getIntArr(sc), sc.nextInt())) {
+                System.out.println(Arrays.toString(var.toArray()));
+            }
         }
     }
 }
