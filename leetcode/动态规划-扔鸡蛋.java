@@ -1,11 +1,13 @@
 import java.util.*;
 
 /**
+ * 
+ * 887. Super Egg Drop
+ * https://leetcode.com/problems/super-egg-drop/
+ * 
+ * 参考：https://juejin.im/post/5c0ca086518825428c570079
  * 扔鸡蛋
  * 
- * https://juejin.im/post/5c0ca086518825428c570079
- * 
- * https://leetcode.com/problems/super-egg-drop/
  */
 public class Solution {
 

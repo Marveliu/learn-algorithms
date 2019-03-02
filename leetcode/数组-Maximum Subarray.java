@@ -1,5 +1,12 @@
 import java.util.*;
 
+
+/**
+ * 53. Maximum Subarray
+ * https://leetcode.com/problems/maximum-subarray/
+ * 
+ * 最大连续子串的和
+ */
 public class Solution {
 
     public int maxSubArray(int[] nums) {

@@ -1,7 +1,20 @@
 import java.util.*;
 
-// 46. Permutations
-// 思路：dfs+回溯
+/**
+ * 46. Permutations
+ * https://leetcode.com/problems/permutations/
+ * 
+ * 思路：dfs+回溯
+ * 
+ * 1,2,3
+ * [1,2,3],
+ * [1,3,2],
+ * [2,1,3],
+ * [2,3,1],
+ * [3,1,2],
+ * [3,2,1]
+ * 
+ */
 public class Solution {
 
     List<List<Integer>> ans = null;
@@ -16,7 +29,6 @@ public class Solution {
         if (list.size() >= nums.length) {
             ans.add(list);
         }
-
         for (int i = 0; i < nums.length; i++) {
             if (v[i] != 1) {
                 List<Integer> nlist = new ArrayList<>(list);

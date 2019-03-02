@@ -1,16 +1,19 @@
 import java.util.*;
 
-// [1,2,3]
-// [4,5,6]
-// [7,8,9]
-
-// (0,0) -> (0,2)
-// (0,2) -> (2,2)
-// (2,2) -> (2,0)
-// (2,0) -> (0,0)
-
-// 48. Rotate Image
-// 思路：逐层进行旋转
+/**
+ * 48. Rotate Image
+ * https://leetcode.com/problems/rotate-image/
+ * 
+ * 思路：逐层进行旋转
+ * 
+ * [1,2,3]
+ * [4,5,6]
+ * [7,8,9]
+ * (0,0) -> (0,2)
+ * (0,2) -> (2,2)
+ * (2,2) -> (2,0)
+ * (2,0) -> (0,0)
+ */
 public class Solution {
 
     public void rotate(int[][] matrix) {

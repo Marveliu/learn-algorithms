@@ -1,7 +1,12 @@
 import java.util.*;
 
-// 38. Count and Say
-// misleading description
+/**
+ * 38. Count and Say
+ * misleading description
+ * 
+ * https://leetcode.com/problems/count-and-say/
+ * 
+ */
 public class Solution {
 
     // 刚开始一直没懂题的意思，其实就是假设第一个是1，然后每一次前面生成的，n指读多少次。

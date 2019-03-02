@@ -1,7 +1,13 @@
 import java.util.*;
 
-// 39. Combination Sum
-// dfs 按照一定的次序进行查找
+/**
+ * 39. Combination Sum
+ * 
+ * https://leetcode.com/problems/combination-sum/
+ * 
+ * dfs 按照一定的次序进行查找
+ * 
+ */
 public class Solution {
 
     List<List<Integer>> ans = null;

@@ -1,7 +1,12 @@
 import java.util.*;
 
-// 56. Merge Intervals
-// 思路：归并排序
+/**
+ * 56. Merge Intervals
+ * https://leetcode.com/problems/merge-intervals/
+ * 
+ * 思路：归并排序
+ * 
+ */
 public class Solution {
 
     public List<Interval> merge(List<Interval> intervals) {

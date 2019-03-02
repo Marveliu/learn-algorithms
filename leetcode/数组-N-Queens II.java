@@ -1,7 +1,12 @@
 import java.util.*;
 
-// 52. N-Queens II
-// 思路：dfs+回溯
+/**
+ * 52. N-Queens II
+ * https://leetcode.com/problems/n-queens-ii/
+ * 
+ * 
+ * 思路：dfs+回溯
+ */
 public class Solution {
 
     int ans = 0;

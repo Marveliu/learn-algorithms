@@ -1,9 +1,17 @@
 import java.util.*;
 
-// 50. Pow(x, n)
+/**
+ * 50. Pow(x, n)
+ * https://leetcode.com/problems/powx-n/
+ * 
+ * 
+ * 2.00000, 10
+ * 1024.00000
+ * 
+ * 二分
+ */
 public class Solution {
 
-    // 二分
     public double myPow(double x, int n) {
         if (n == 0)
             return 1;
@@ -21,22 +29,6 @@ public class Solution {
             return myPow(x * x, n / 2);
     }
 
-    // 超时 o(n)
-    // public double pow(double x, int n) {
-    // if (x == 0)
-    // return 0;
-    // if (n == 0)
-    // return 1;
-    // if (n < 0) {
-    // x = 1 / x;
-    // n = Math.abs(n);
-    // }
-    // double ans = x;
-    // for (int i = 2; i <= n; i++) {
-    // ans *= x;
-    // }
-    // return ans;
-    // }
 
     public static void main(String[] args) {
         Solution s = new Solution();

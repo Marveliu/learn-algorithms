@@ -1,7 +1,17 @@
 import java.util.*;
 
-// 40. Combination Sum II
-// dfs 按照一定的次序进行查找
+/**
+ * 40. Combination Sum II
+ * https://leetcode.com/problems/combination-sum-ii/
+ * 
+ * dfs 按照一定的次序进行查找
+ * 
+ * candidates = [10,1,2,7,6,1,5], target = 8,
+ * [1, 7],
+ * [1, 2, 5],
+ * [2, 6],
+ * [1, 1, 6]
+ */
 public class Solution {
 
     List<List<Integer>> ans = null;

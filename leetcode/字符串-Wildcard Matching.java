@@ -1,9 +1,15 @@
 import java.util.*;
 
-// 44. Wildcard Matching
-// 字符串匹配问题
-// 1. 区间动态dfs时间复杂度太高
-// 2. dp一般是二维dp
+
+/**
+ * 44. Wildcard Matching
+ * https://leetcode.com/problems/wildcard-matching/
+ * 
+ * 字符串匹配问题，dp一般是二维dp
+ * 
+ * '?' Matches any single character.
+ * '*' Matches any sequence of characters (including the empty sequence).
+ */
 public class Solution {
 
     public boolean isMatch(String s, String p) {

@@ -1,8 +1,15 @@
 import java.util.*;
 
-// 42. Trapping Rain Water
-// 数组内计算区间，是two point的问题，有可能涉及峰和坡度
-// 因此可以进行拆分，两封之间存在下坡和上坡，可以考虑从两边往中间进行计算
+/**
+ * 42. Trapping Rain Water
+ * https://leetcode.com/problems/trapping-rain-water/
+ * 
+ * 数组内计算区间，是two point的问题，有可能涉及峰和坡度
+ * 因此可以进行拆分，两封之间存在下坡和上坡，可以考虑从两边往中间进行计算
+ * 
+ * 计算可以存的最多的水
+ * 
+ */
 public class Solution {
 
     public int trap(int[] A) {
@@ -17,7 +24,6 @@ public class Solution {
             l++;
         while (l < r && A[r] <= A[r - 1])
             r--;
-
         while (l < r) {
             int left = A[l];
             int right = A[r];

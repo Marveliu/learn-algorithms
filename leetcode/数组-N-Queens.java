@@ -1,8 +1,13 @@
 import java.util.*;
 
-// N-Queens
-// 八皇后问题，dfs+回溯
-// 时间复杂度：o(n^2)
+/**
+ * N-Queens
+ * 
+ * https://leetcode.com/problems/n-queens/
+ * 
+ * 八皇后问题，dfs+回溯
+ * 时间复杂度：o(n^2)
+ */
 public class Solution {
 
     List<List<String>> ans = null;
