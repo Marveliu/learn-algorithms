@@ -30,52 +30,6 @@ public class Solution {
         return exist;
     }
 
-    // public boolean exist(char[][] board, String word) {
-    // if (word == null || word.isEmpty()) {
-    // return true;
-    // }
-    // for (int i = 0; i < board.length; i++) {
-    // for (int j = 0; j < board[0].length; j++) {
-    // if (word.charAt(0) == board[i][j]) {
-    // if (dfs(board, i, j, word, new boolean[board.length][board[0].length])) {
-    // return true;
-    // }
-    // }
-    // }
-    // }
-    // return false;
-    // }
-
-    // public boolean dfs(char[][] board, int x, int y, String word, boolean[][]
-    // visit) {
-    // if (word.isEmpty()) {
-    // return true;
-    // }
-    // if (x < 0 || x >= board.length || y >= board[0].length || y < 0 ||
-    // visit[x][y])
-    // return false;
-    // visit[x][y] = true;
-    // if (word.charAt(0) == board[x][y]) {
-    // String s = word.substring(1, word.length());
-    // if (dfs(board, x + 1, y, s, copy(visit)) || dfs(board, x, y + 1, s,
-    // copy(visit))
-    // || dfs(board, x - 1, y, s, copy(visit)) || dfs(board, x, y - 1, s,
-    // copy(visit))) {
-    // return true;
-    // }
-    // }
-    // return false;
-    // }
-
-    // public boolean[][] copy(boolean[][] visit) {
-    // boolean[][] cp = new boolean[visit.length][visit[0].length];
-    // for (int i = 0; i < visit.length; i++) {
-    // for (int j = 0; j < visit[0].length; j++) {
-    // cp[i][j] = visit[i][j];
-    // }
-    // }
-    // return cp;
-    // }
 
     public static void main(String[] args) {
         Solution s = new Solution();

@@ -20,8 +20,8 @@
             "cwd": "${workspaceFolder}",
             "console": "integratedTerminal",
             "stopOnEntry": false,
-            // "mainClass": "Solution",
-            "mainClass": "Main",
+            "mainClass": "Solution",
+            // "mainClass": "Main",
             "args": ""
         }
     ]
