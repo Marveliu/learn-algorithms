@@ -4,6 +4,8 @@ import java.util.*;
  * 22. Generate Parentheses
  * https://leetcode.com/problems/generate-parentheses/
  * 
+ * 生成所有可能的合法括号
+ * 
  * 思路:维护已经设置的"(",")"进行dfs+回溯。
  */
 public class Solution {

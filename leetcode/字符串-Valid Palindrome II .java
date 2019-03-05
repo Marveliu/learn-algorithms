@@ -4,6 +4,9 @@ import java.util.*;
  * 680. Valid Palindrome II 
  * https://leetcode.com/problems/valid-palindrome-ii/
  * 
+ * 回文字符串判定
+ * "abca" ture 
+ * 
  * 思路: 两端进行dfs
  * 
  */
