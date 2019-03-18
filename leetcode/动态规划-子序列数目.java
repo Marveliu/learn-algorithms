@@ -32,7 +32,7 @@ public class Solution {
         for (int j = 0; j <= S.length(); j++) {
             dp[0][j] = 1;
         }
-
+        
         // the first column is 0 by default in every other rows but the first, which we
         // need.
         for (int i = 0; i < T.length(); i++) {

@@ -2,6 +2,9 @@ import java.util.*;
 
 /**
  * 49. Group Anagrams
+ * 
+ * 对字符串数组，对相同字符组成的字符串进行分组
+ * 
  * https://leetcode.com/problems/group-anagrams
  * 
  */

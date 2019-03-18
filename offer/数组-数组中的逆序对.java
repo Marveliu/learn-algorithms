@@ -1,7 +1,7 @@
 import java.util.*;
 /**
  * 数组中的逆序对
- * 在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对
+ * 在数组中的两个数字，如果前面一个数字大于后面的数字，则这两个数字组成一个逆序对，求得所有的逆序对的数目
  * 思路：归并排序
  * 
  * https://www.nowcoder.com/practice/96bd6684e04a44eb80e6a68efc0ec6c5
@@ -57,8 +57,7 @@ public class Solution {
         while (true) {
             Scanner sc = new Scanner(System.in);
             System.out.println("Input>>>");
-            int[] test = Arrays.asList(sc.nextLine().split(",")).stream().mapToInt(item -> Integer.valueOf(item))
-                    .toArray();
+            int[] test = Arrays.asList(sc.nextLine().split(",")).stream().mapToInt(item -> Integer.valueOf(item)).toArray();
             int res = s.InversePairs(test);
             System.out.println(res);
         }

@@ -37,7 +37,7 @@ public class Solution {
     //     array = arr.parallelStream().mapToInt(Integer::valueOf).toArray();
     // }
 
-    // 2.QuickSort + Comparator
+    // 2. QuickSort + Comparator
     public void reOrderArray(int[] array) {
         QuickSort(array, 0, array.length - 1);
     }

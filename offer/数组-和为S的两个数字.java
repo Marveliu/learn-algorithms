@@ -64,8 +64,7 @@ public class Solution {
         while (true) {
             Scanner sc = new Scanner(System.in);
             System.out.println("Input>>>");
-            int[] test = Arrays.asList(sc.nextLine().split(",")).stream().mapToInt(item -> Integer.valueOf(item))
-                    .toArray();
+            int[] test = Arrays.asList(sc.nextLine().split(",")).stream().mapToInt(item -> Integer.valueOf(item)).toArray();
             int sum = sc.nextInt();
             ArrayList<Integer> res = s.FindNumbersWithSum(test, sum);
             for (Integer var : res) {
