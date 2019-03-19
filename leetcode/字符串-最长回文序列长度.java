@@ -11,6 +11,9 @@ import java.util.*;
  * 2. i == j，dp[i][j] = 1； 
  * 3. i < j且s[i] == s[j]，dp[i][j] = dp[i + 1][j - 1] + 2； 
  * 4. i < j且s[i]！= s[j]，dp[i][j] = max(dp[i + 1][j]，dp[i][j - 1])；
+ * 
+ * bbbab
+ * 4
  */
 public class Solution {
 
