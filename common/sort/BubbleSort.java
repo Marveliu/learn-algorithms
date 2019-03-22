@@ -9,13 +9,17 @@ class BubbleSort {
         if (len <= 1)
             return;
         while (len > 1) {
+            boolean isSort = true;
             for (int i = 1; i < len; i++) {
                 if (s[i] < s[i - 1]) {
                     int tmp = s[i];
                     s[i] = s[i - 1];
                     s[i - 1] = tmp;
+                    isSort = false;
                 }
             }
+            if (isSort)
+                return;
             len--;
         }
     }
