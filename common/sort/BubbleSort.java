@@ -1,33 +1,38 @@
+import java.util.*;
+
 // 冒泡排序
 // 稳定
 // 时间复杂度：o(n^2)
 // 空间复杂度：o(1)
-class BubbleSort {
+// 改进，判断是否有序
+public class Solution {
 
-    public static void sort(int[] s) {
-        int len = s.length;
-        if (len <= 1)
-            return;
-        while (len > 1) {
+    public void BubbleSort(int[] n) {
+        int len = n.length;
+        for (int i = len - 1; i > 0; i--) {
             boolean isSort = true;
-            for (int i = 1; i < len; i++) {
-                if (s[i] < s[i - 1]) {
-                    int tmp = s[i];
-                    s[i] = s[i - 1];
-                    s[i - 1] = tmp;
+            for (int j = 1; j <= i; j++) {
+                if (n[j] < n[j - 1]) {
+                    int tmp = n[j - 1];
+                    n[j - 1] = n[j];
+                    n[j] = tmp;
                     isSort = false;
                 }
             }
             if (isSort)
                 return;
-            len--;
         }
     }
 
     public static void main(String[] args) {
-        int[] a = { 4, 1, 3, 2, 16, 9, 10, 14, 8, 7 };
-        BubbleSort.sort(a);
-        LogUtil.log(a);
-    }
+        Solution s = new Solution();
+        Scanner sc = new Scanner(System.in);
+        while (true) {
+            System.out.println("Input>>>");
+            int[] n = StringUtil.getIntArr(sc);
+            s.BubbleSort(n);
+            System.out.println(Arrays.toString(n));
 
+        }
+    }
 }
