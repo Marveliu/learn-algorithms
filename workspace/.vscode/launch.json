@@ -1,0 +1,12 @@
+{
+    "configurations": [{
+        "type": "java",
+        "name": "CodeLens (Launch) - Solution",
+        "request": "launch",
+        "cwd": "${workspaceFolder}",
+        "console": "integratedTerminal",
+        "stopOnEntry": false,
+        "mainClass": "Solution",
+        "args": ""
+    }]
+}

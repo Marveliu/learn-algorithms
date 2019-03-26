@@ -6,6 +6,7 @@ import java.util.*;
  * https://leetcode.com/problems/partition-equal-subset-sum/
  * 
  * 思路：所有可能组成的和，为总的和一般即可 问题转换成 dp[v] 是否可以true
+ * 即，背包问题
  * 
  */
 public class Solution {
