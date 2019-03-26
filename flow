@@ -1,0 +1,41 @@
+# !/bin/bash                # 指定shell类型
+
+function clean(){
+  find . -name "*.class"  | xargs rm -f
+
+}
+
+run(){
+	if [ $1 == "push" ]; then
+        git add .
+        if [ -z $2 ]; then
+            echo "commit message cannot be null"
+        else
+            clean
+            git commit -m$2
+            git push
+        fi    
+	elif [ $1 == "reset" ]; then
+        echo "rm *.class"
+        cd workspace
+        # mv Solution.java Solution.java.tmp
+        # cp Solution.java.back Solution.java
+        mv $2.java $2.java.tmp
+        cp $2.java.back $2.java
+        cd ..
+		clean
+    elif [ $1 == "save" ]; then
+        echo "save solution.class"
+        # 统计数目
+        # cd $2
+        # num=`ls -l |grep "^-"|wc -l`
+        # echo ${num}
+        # cd ..
+        # let num++
+        cp ./workspace/Solution.java ./$2/$3.java
+    else  $1 == "clear"
+        clean
+    fi
+}
+
+run $@
