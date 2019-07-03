@@ -10,7 +10,7 @@ public class Solution {
         if (start < end) {
             int index = partition(n, start, end);
             quickSort1(n, start, index - 1);
-            quickSort2(n, index + 1, end);
+            quickSort1(n, index + 1, end);
         }
     }
 

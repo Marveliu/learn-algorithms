@@ -1,5 +1,6 @@
 {
-    "configurations": [{
+    "configurations": [
+        {
         "type": "java",
         "name": "CodeLens (Launch) - Solution",
         "request": "launch",
@@ -7,6 +8,7 @@
         "console": "integratedTerminal",
         "stopOnEntry": false,
         "mainClass": "Solution",
+        // "mainClass": "Main",
         "args": ""
     }]
 }

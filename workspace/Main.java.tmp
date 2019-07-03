@@ -1,13 +1,51 @@
 import java.util.*;
 
-// 近检测输入输出，不能有while循环
 public class Main {
 
-    static void solve(){
+    // 做咖啡： N个咖啡机
+    // 洗杯子：
+    // 1. 自然清洗y
+    // 2. 洗杯器x
+    static int solve(int n, int[] coffs, int x, int y) {
+        int len = coffs.length;
+        int ans = 0;
+        // 按照时间排序
+        Arrays.sort(coffs);
+        // 咖啡机使用情况
+        int[] v = new int[len];
+        // 清洁机器状态
+        int clean = 1;
+        // 最长时间
+        int max = n * coffs[len - 1] + n * Math.max(x, y);
+        // 表示当前时间
+        int i = 0;
+        // 模拟时间递增
+        while (n != 0 && i <= max) {
+            // 贪心
+            // 判断咖啡机的状态，选择最短时间的咖啡机
+
+            // 根据清洁机的状态，选择清洗方式，    
+        }
+        
 
     }
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        int count = sc.nextInt();
+        sc.nextInt();
+        for (int i = 0; i < count; i++) {
+            int n = sc.nextInt();
+            int m = sc.nextInt();
+            int x = sc.nextInt();
+            int y = sc.nextInt();
+            int[] coffs = new int[m];
+            sc.nextLine();
+            for (int j = 0; j < m; j++) {
+                coffs[j] = sc.nextInt();
+            }
+            sc.nextLine();
+            System.out.println(solve(n, coffs, x, y));
+        }
     }
 }
